@@ -9,6 +9,7 @@ Example:
 import sys
 import fire
 import questionary
+import csv
 from pathlib import Path
 
 from qualifier.utils.fileio import load_csv
@@ -101,7 +102,6 @@ def find_qualifying_loans(bank_data, credit_score, debt, income, loan, home_valu
 
     return bank_data_filtered
 
-
 def save_qualifying_loans(qualifying_loans):
     """Saves the qualifying loans to a CSV file.
 
@@ -109,8 +109,34 @@ def save_qualifying_loans(qualifying_loans):
         qualifying_loans (list of lists): The qualifying bank loans.
     """
     # @TODO: Complete the usability dialog for savings the CSV Files.
-    # YOUR CODE HERE!
+    if len(qualifying_loans) > 0:
+        saveFile = int(questionary.text("Would you like to save file? 1 - yes, 2 - no:").ask())
+        while saveFile != 1 and saveFile != 2:
+            saveFile = int(questionary.text("Would you like to save file? 1 - yes, 2 - no:").ask())
+        if saveFile == 1:
+            csvpath = questionary.text("Enter a file path to save qualifying loans (.csv):").ask()
+            csvpath = Path(csvpath)
+            if csvpath.exists():
+                sys.exit(f"Oops! File already exists.: {csvpath}")
+            else:
+                save_csv(csvpath,qualifying_loans)
+        else:
+            print(f"The program will exit now.")  
+    else:
+        print(f"No loans available to save.")
 
+def save_csv(output_path, qualifying_loans):
+    """Writes a CSV file to output path provided.
+
+    Args:
+        output_path (string): The CSV file path and file name.
+        qualifying_loans (list of lists): The qualifying bank loans.
+    """
+    csvpath = Path(output_path)
+    with open(csvpath, 'w', newline='') as csvfile:
+        spamwriter = csv.writer(csvfile, delimiter=',')
+        for loan in qualifying_loans:
+            spamwriter.writerow(loan)
 
 def run():
     """The main function for running the script."""
