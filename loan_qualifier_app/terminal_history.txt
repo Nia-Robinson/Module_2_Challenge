@@ -1,0 +1,49 @@
+    1  git config --global user.name Nia Robinson
+    2  git config --global user.email nrobinson00046@gmail.com
+    3  git config --list
+    4  cd C:\Users\Nia\OneDrive\Desktop\UNCC Fintech Bootcamp\Python\Challenges\Module 2
+    5  cd "C:\Users\Nia\OneDrive\Desktop\UNCC Fintech Bootcamp\Python\Challenges\Module 2"
+    6  ls
+    7  git clone https://github.com/Nia-Robinson/loan_qualifier_app.git
+    8  ls
+    9  cd loan_qualifier_app
+   10  ls
+   11  pwd
+   12  git clone https://github.com/Nia-Robinson/loan_qualifier_app.git
+   13  git status
+   14  git add ../README.md
+   15  git add loan_qualifier_app/
+   16  git remove loan_qualifier_app/
+   17  git delete loan_qualifier_app/
+   18  git --help
+   19  git rm loan_qualifier_app/
+   20  git status
+   21  git commit -m "Update README.md"
+   22  git status
+   23  git push
+   24  git push
+   25  cd ..
+   26  git push
+   27  git --help
+   28  git --init
+   29  git init
+   30  pwd
+   31  ls
+   32  cd loan_qualifier_app
+   33  git glone https://github.com/Nia-Robinson/loan_qualifier_app.git
+   34  git clone https://github.com/Nia-Robinson/loan_qualifier_app.git
+   35  git status
+   36  git status
+   37  git status
+   38  cd loan_qualifier_app
+   39  ls
+   40  cd loan_qualifier_app
+   41  git status
+   42  git add .
+   43  git status
+   44  git add ../README.md
+   45  git status
+   46  git commit -m "Updated README.md and updated system design."
+   47  git status
+   48  git push
+   49  history 50 > terminal_history.txt
