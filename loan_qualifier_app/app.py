@@ -9,10 +9,10 @@ Example:
 import sys
 import fire
 import questionary
-import csv
 from pathlib import Path
 
 from qualifier.utils.fileio import load_csv
+from qualifier.utils.fileio import save_csv
 
 from qualifier.utils.calculators import (
     calculate_monthly_debt_ratio,
@@ -119,24 +119,13 @@ def save_qualifying_loans(qualifying_loans):
             if csvpath.exists():
                 sys.exit(f"Oops! File already exists.: {csvpath}")
             else:
-                save_csv(csvpath,qualifying_loans)
+                save_csv(csvpath, qualifying_loans)
         else:
             print(f"The program will exit now.")  
     else:
         print(f"No loans available to save.")
 
-def save_csv(output_path, qualifying_loans):
-    """Writes a CSV file to output path provided.
 
-    Args:
-        output_path (string): The CSV file path and file name.
-        qualifying_loans (list of lists): The qualifying bank loans.
-    """
-    csvpath = Path(output_path)
-    with open(csvpath, 'w', newline='') as csvfile:
-        spamwriter = csv.writer(csvfile, delimiter=',')
-        for loan in qualifying_loans:
-            spamwriter.writerow(loan)
 
 def run():
     """The main function for running the script."""

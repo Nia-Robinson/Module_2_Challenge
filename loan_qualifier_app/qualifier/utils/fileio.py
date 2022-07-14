@@ -28,3 +28,15 @@ def load_csv(csvpath):
         for row in csvreader:
             data.append(row)
     return data
+
+def save_csv(csvpath, lists):
+    """Writes a CSV file to output path provided.
+
+    Args:
+        csvpath (Path): The csv file path.
+        lists (list of lists): The data that is written to the CSV file.
+    """
+    with open(csvpath, 'w', newline='') as csvfile:
+        spamwriter = csv.writer(csvfile, delimiter=',')
+        for list in lists:
+            spamwriter.writerow(list)
